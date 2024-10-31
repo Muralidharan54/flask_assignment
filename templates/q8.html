@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.feedback.label }}<br>
+            {{ form.feedback(cols=32, rows=4) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <h2>Feedback History:</h2>
+    <ul>
+        {% for entry in feedback_list %}
+            <li><strong>{{ entry.name}}</strong>: {{ entry.feedback }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
